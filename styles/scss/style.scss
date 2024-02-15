@@ -50,7 +50,7 @@ body {
 
 .calculator {
   background-color: vars.$white;
-  margin: 88px 10px 0;
+  margin: 80px 10px 0;
   max-width: 21.48rem;
   padding: 2.97rem 1rem 2.1rem;
   border-radius: 22px 22px 100px 22px;
@@ -177,13 +177,20 @@ body {
   }
 }
 
-
-@media (min-width: 1440px){
-  body {
+@media (min-width: 600px) {
+   body {
     align-items: center;
     min-height: 100vh;
   }
-  
+
+  .calculator{
+    margin: 20px;
+  }
+}
+
+
+@media (min-width: 1100px){
+ 
   .calculator {
     margin: 0;
     max-width: 52.5rem;

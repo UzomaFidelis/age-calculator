@@ -104,7 +104,9 @@ function filledInputs() {
 }
 
 function goodDateInputs() {
-  const dateToCheck = new Date(`${yearInput.value}/${monthInput.value}/${dayInput.value}`);
+  const dateToCheck = new Date(
+    `${yearInput.value}/${monthInput.value}/${dayInput.value}`
+  );
 
   if (
     dayInput.value <= 31 &&
@@ -190,11 +192,10 @@ yearInput.addEventListener("input", (e) => {
 
 calculateBtn.addEventListener("click", () => {
   if (filledInputs()) {
-    if (goodDateInputs() && dateExist()){
-      calculateAge(moment(
-        `${yearInput.value}-${monthInput.value}-${dayInput.value}`
-      ));
+    if (goodDateInputs() && dateExist()) {
+      calculateAge(
+        moment(`${yearInput.value}-${monthInput.value}-${dayInput.value}`)
+      );
     }
   }
 });
-
