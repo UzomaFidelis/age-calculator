@@ -30,7 +30,7 @@ function limitToMaxLength(elem) {
 }
 
 function disallowNonNumericInput(elem) {
-  elem.value = elem.value.replace(/[e\+\-\.\s]/gi, '');
+  elem.value = elem.value.replace(/[e\+\-\.\s]/gi, "");
 }
 
 function showErrorFeedback(
@@ -134,7 +134,10 @@ function goodDateInputs() {
       );
     }
 
-    if (!(yearInput.value <= today.getFullYear()) || !(dateToCheck < today)) {
+    if (
+      yearInput.value > today.getFullYear() ||
+      (dateToCheck != "Invalid Date" && dateToCheck > today)
+    ) {
       showErrorFeedback(
         yearInput,
         [yearLabel],
