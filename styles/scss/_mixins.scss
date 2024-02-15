@@ -1,0 +1,13 @@
+@mixin font($family: Poppins, $wght: 400, $style: normal, $path){
+    @font-face {
+        font-family: $family;
+        src: $path;
+        font-weight: $wght;
+        font-style: $style;
+    }
+}
+
+@mixin basefont{
+    font-family: Poppins, sans-serif;
+}
+

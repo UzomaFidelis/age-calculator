@@ -1,0 +1,231 @@
+@use "variables" as vars;
+@use "mixins";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@include mixins.font($path: url(../../assets/fonts/Poppins-Regular.ttf));
+@include mixins.font(
+  $path: url(../../assets/fonts/Poppins-Italic.ttf),
+  $style: italic
+);
+@include mixins.font(
+  $path: url(../../assets/fonts/Poppins-Bold.ttf),
+  $wght: 700
+);
+@include mixins.font(
+  $path: url(../../assets/fonts/Poppins-BoldItalic.ttf),
+  $wght: 700,
+  $style: italic
+);
+@include mixins.font(
+  $path: url(../../assets/fonts/Poppins-ExtraBold.ttf),
+  $wght: 800
+);
+@include mixins.font(
+  $path: url(../../assets/fonts/Poppins-ExtraBoldItalic.ttf),
+  $wght: 800,
+  $style: italic
+);
+
+body {
+  @include mixins.basefont;
+  background-color: vars.$off-white;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.calculator {
+  background-color: vars.$white;
+  margin: 88px 10px 0;
+  max-width: 21.48rem;
+  padding: 2.97rem 1rem 2.1rem;
+  border-radius: 22px 22px 100px 22px;
+  overflow: hidden;
+}
+
+.input {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 1.04rem;
+  padding: 0 0.5rem 1.47rem;
+
+  &__label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.18rem;
+    margin-bottom: 0.3rem;
+
+    &_error {
+      color: vars.$light-red;
+    }
+  }
+
+  &__error-feedback {
+    color: vars.$light-red;
+    display: none;
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+  }
+}
+
+.numinput {
+  @include mixins.basefont;
+  font-weight: 700;
+  width: 100%;
+  height: 3.35rem;
+  font-size: 1.3rem;
+  padding: 0.52rem 0.9rem;
+  border: 1px solid vars.$light-grey;
+  border-radius: 8px;
+
+  &:hover {
+    border: 1px solid vars.$purple;
+  }
+  
+  &:focus {
+    border: 2px solid vars.$smokey-grey;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: vars.$smokey-grey;
+  }
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    display: none;
+  }
+
+  &_error, &_error:active, &_error:focus {
+    border: 2px solid vars.$light-red;
+  }
+}
+
+.divider {
+  position: relative;
+  margin: 2.5rem 0;
+  padding: 0 0.5rem;
+
+  &__line {
+    border: none;
+    border-top: 1px solid vars.$light-grey;
+  }
+}
+
+.button {
+  border: none;
+  outline: none !important;
+  cursor: pointer;
+
+  &_calculate {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    transition: background-color 0.2s ease-in;
+    background: {
+      image: url(../../assets/images/icon-arrow.svg);
+      repeat: no-repeat;
+      position: center;
+      size: 40%;
+      color: vars.$purple;
+    }
+
+    &:hover {
+      background-color: vars.$off-black;
+    }
+  }
+}
+
+.output {
+  padding: 1.45rem 0 0.9rem 0.5rem;
+  line-height: 3.9rem;
+}
+
+.result {
+  margin: 0;
+  font: {
+    weight: 800;
+    style: italic;
+    size: 3.4rem;
+  }
+
+  &__num {
+    color: vars.$purple;
+
+   
+  }
+}
+
+
+@media (min-width: 1440px){
+  body {
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .calculator {
+    margin: 0;
+    max-width: 52.5rem;
+    padding: 3.5rem 3.5rem 2.1rem 2.97rem;
+    border-bottom-right-radius: 200px;
+  }
+
+  .input {
+    width: 76.2%;
+    column-gap: 2rem;
+
+    &__label {
+      font-size: 0.92rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .numinput {
+    font-size: 2rem;
+    padding: 2.2rem 1.5rem;
+  }
+
+  .divider {
+    margin: 1.52rem 0;
+  }
+
+  .button {
+    &_calculate {
+      right: 0;
+      left: auto;
+      width: 6rem;
+      height: 6rem;
+      background-size: 46.5%;
+    }
+  }
+
+  .output {
+    padding: 1.4rem 0 1.4rem 0.6rem;
+    line-height: 7.15rem;
+  }
+  
+  .result {
+    font-size: 6.47rem;
+  }
+}

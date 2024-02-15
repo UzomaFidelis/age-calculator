@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="./styles/css/style.css" />
+
+    <title>Frontend Mentor | Age calculator app</title>
+  </head>
+  <body>
+    <h1 class="sr-only">Age Calculator</h1>
+    <main class="calculator">
+      <section class="input">
+        <div class="day">
+          <label for="day__input" id="label-day" class="input__label">DAY</label>
+          <input
+            type="number"
+            id="day__input"
+            class="numinput"
+            placeholder="DD"
+            maxlength="2"
+            required
+          />
+          <div id="error-day" class="input__error-feedback"></div>
+        </div>
+        <div class="month">
+          <label for="month__input"  id='label-month' class="input__label">MONTH</label>
+          <input
+            type="number"
+            id="month__input"
+            class="numinput"
+            placeholder="MM"
+            maxlength="2"
+            required
+          />
+          <div id="error-month" class="input__error-feedback"></div>
+        </div>
+        <div class="year">
+          <label for="year__input" id="label-year" class="input__label">YEAR</label>
+          <input
+            type="number"
+            id="year__input"
+            class="numinput"
+            placeholder="YYYY"
+            maxlength="4"
+            required
+          />
+          <div id="error-year" class="input__error-feedback"></div>
+        </div>
+      </section>
+      <div class="divider">
+        <hr class="divider__line" />
+        <button
+          type="button"
+          id="calculate-btn"
+          class="button button_calculate"
+          name="calculate"
+        ></button>
+      </div>
+      <section class="output">
+        <p class="result output__year">
+          <span id="year-result" class="result__num result__num_year">--</span> years
+        </p>
+        <p class="result output__month">
+          <span id="month-result" class="result__num result__num_month">--</span> months
+        </p>
+        <p class="result output__day">
+          <span id="day-result" class="result__num result__num_day">--</span> days
+        </p>
+      </section>
+    </main>
+
+    <script src="./scripts/moment.js"></script>
+    <script src="./scripts/moment-precise-range.js"></script>
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
